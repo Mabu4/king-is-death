@@ -11,7 +11,6 @@ export class GameComponent implements OnInit {
   game: Game;
 
   constructor() { 
-    this.game = new Game();
   }
 
   ngOnInit(): void {
@@ -19,7 +18,7 @@ export class GameComponent implements OnInit {
   }
 
   newGame(){
-    
+    this.game = new Game();
     console.log(this.game);
   }
   
