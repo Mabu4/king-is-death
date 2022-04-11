@@ -12,19 +12,19 @@
     <div class="card-stack">
             <!----Stack with 4 Cards----->
         <img [ngStyle]="{'right.px': i * 5}" *ngFor="let card of [1,2,3,4]; 
-            let i = index;" src="../../assets/img/cards/card_cover.png">
+            let i = index;" src="./assets/img/cards/card_cover.png">
 
             <!----Top Card with hover effect-->
         <img (click)="takeCard()" class="top-card"
-            style="right: 25px;" src="../../assets/img/cards/card_cover.png">
+            style="right: 25px;" src="./assets/img/cards/card_cover.png">
 
             <!----Stack for played Cards-->
         <img *ngFor="let card of game.playedCards" class="played-cards" 
-            src="../../assets/img/cards/{{ card }}.png">
+            src="./assets/img/cards/{{ card }}.png">
     
             <!----Current animated Card from Stack to top------>
         <img (click)="takeCard()" *ngIf="pickCardAnimation" class="pick-card"
-            style="right: 25px;" src="../../assets/img/cards/{{ currentCard }}.png">
+            style="right: 25px;" src="./assets/img/cards/{{ currentCard }}.png">
     </div>
 
 </div>
