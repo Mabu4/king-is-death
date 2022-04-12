@@ -16,6 +16,8 @@ import {MatInputModule} from '@angular/material/input';
 import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.component';
 import {MatCardModule} from '@angular/material/card';
 import { GameInfoComponent } from './game-info/game-info.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { GameInfoComponent } from './game-info/game-info.component';
     GameInfoComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,

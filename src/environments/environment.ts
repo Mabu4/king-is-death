@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyABT18ukBs4QOL6dkg0bF4LBuFzz6E18bI",
+    authDomain: "ring-of-fire-d94ae.firebaseapp.com",
+    databaseURL: "https://ring-of-fire-d94ae-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "ring-of-fire-d94ae",
+    storageBucket: "ring-of-fire-d94ae.appspot.com",
+    messagingSenderId: "955809908577",
+    appId: "1:955809908577:web:4d6236681d8850443ba720",
+    measurementId: "G-PG92LJW3SH"
+  }
 };
 
 /*
