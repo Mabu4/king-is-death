@@ -16,8 +16,12 @@ import {MatInputModule} from '@angular/material/input';
 import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.component';
 import {MatCardModule} from '@angular/material/card';
 import { GameInfoComponent } from './game-info/game-info.component';
-import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,6 @@ import { environment } from '../environments/environment';
     GameInfoComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
@@ -39,7 +42,12 @@ import { environment } from '../environments/environment';
     FormsModule,
     MatInputModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideDatabase(() => getDatabase()),
+    // provideFirestore(() => getFirestore())
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

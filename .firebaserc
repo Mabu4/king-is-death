@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ring-of-fire-d94ae"
+  },
+  "targets": {
+    "ring-of-fire-d94ae": {
+      "hosting": {
+        "ring-of-fire": [
+          "ring-of-fire-d94ae"
+        ]
+      }
+    }
   }
 }
