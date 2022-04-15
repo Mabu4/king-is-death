@@ -33,6 +33,8 @@
             <!----Stack for played Cards-->
         <img *ngFor="let card of game.playedCards" class="played-cards" 
             src="./assets/img/cards/{{ card }}.png">
+
+        <img class="preloadImage" src="./assets/img/cards/{{ game.stack[game.stack.length - 1] }}.png">
     
             <!----Current animated Card from Stack to top------>
         <img (click)="takeCard()" *ngIf="game.pickCardAnimation" class="pick-card"

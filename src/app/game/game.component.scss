@@ -102,6 +102,12 @@
     }
 }
 
+.preloadImage {
+    height: 0px;
+    width: 0px;
+    z-index: -999;
+}
+
 app-player, app-player-mobile {
     cursor: pointer;
 
