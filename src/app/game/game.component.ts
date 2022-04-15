@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { AddedPlayerComponent } from '../added-player/added-player.component';
 
 @Component({
   selector: 'app-game',
@@ -14,6 +15,7 @@ export class GameComponent implements OnInit {
 
   game: Game;
   gameID: string;
+  gameOver = false;
 
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore,  public dialog: MatDialog) { 
   }
@@ -28,6 +30,7 @@ export class GameComponent implements OnInit {
         this.game.currentPlayer = game.currentPlayer;
         this.game.playedCards = game.playedCards;
         this.game.players = game.players;
+        this.game.playerImages = game.playerImages;
         this.game.stack = game.stack;
         this.game.pickCardAnimation = game.pickCardAnimation;
         this.game.currentCard = game.currentCard;
@@ -42,7 +45,9 @@ export class GameComponent implements OnInit {
   
 
   takeCard() {
-    if(!this.game.pickCardAnimation){
+    if(this.game.stack.length == 0){
+      this.gameOver = true;
+    } else if(!this.game.pickCardAnimation){
       this.game.currentCard = this.game.stack.pop();
       this.game.pickCardAnimation = true;
       //console.log(this.game);
@@ -54,8 +59,27 @@ export class GameComponent implements OnInit {
         this.game.playedCards.push(this.game.currentCard);
         this.game.pickCardAnimation = false;
         this.saveGame();
-      }, 2000);
+      }, 1500);
     }
+  }
+
+  editplayer(playerID: number) {
+    console.log('Edit Player' + playerID);
+
+    const dialogRef = this.dialog.open(AddedPlayerComponent);
+    dialogRef.afterClosed().subscribe((change: string) => {
+      if(change){
+        if(change == 'DELETE'){
+          this.game.playerImages.splice(playerID, 1);
+          this.game.players.splice(playerID, 1);
+        } else{
+          this.game.playerImages[playerID] = change;
+          
+        }
+        this.saveGame();
+      }
+      
+    });
   }
 
   openDialog(): void {
@@ -64,6 +88,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if(name && name.length > 0) {
         this.game.players.push(name);
+        this.game.playerImages.push('1.webp')
         this.saveGame();
       }
     });

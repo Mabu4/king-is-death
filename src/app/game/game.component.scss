@@ -93,6 +93,23 @@
     top: 0;
 }
 
+.game-over-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 300px;
+    }
+}
+
+app-player, app-player-mobile {
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.15);
+    }
+}
+
 app-player-mobile {
     margin-left: 10px;
 }
