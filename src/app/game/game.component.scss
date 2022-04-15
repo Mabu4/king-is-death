@@ -17,6 +17,9 @@
     img {
         position: absolute;
         width: 8rem;
+        @media(max-width: 720px){
+            width: 5.5rem;
+        }
     }
 }
 
@@ -63,6 +66,9 @@
     position: absolute;
     right: 32px;
     bottom: 32px;
+    @media(max-width: 720px){
+        bottom: 164px;
+    }
 }
 
 .pin-bottom {
@@ -70,4 +76,23 @@
     bottom: 32px;
     left: 150px;
     right: 150px;
+
+    @media(max-width: 720px){
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.scroll-container {
+    overflow: auto;
+    position: absolute;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+app-player-mobile {
+    margin-left: 10px;
 }
