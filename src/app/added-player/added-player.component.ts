@@ -15,8 +15,5 @@ export class AddedPlayerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onNoClick(){
-  //   this.dialogRef.close();
-  // }
 
 }

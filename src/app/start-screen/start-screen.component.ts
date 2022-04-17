@@ -13,6 +13,7 @@ export class StartScreenComponent implements OnInit {
   constructor(private firestore: AngularFirestore, private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   newGame(){

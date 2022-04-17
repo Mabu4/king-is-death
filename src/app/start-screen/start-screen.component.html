@@ -1,6 +1,15 @@
-<div class="start-screen">
-    <img class="start-screen-img" src="./assets/img/startbox.png">
+<div class="start-screen-background">
+    <div class="video-box">
+        <video class="video" src="../../assets/video/game.mp4" muted autoplay type="video/mp4" oncanplay="this.play()" onloadedmetadata="this.muted = true" controls poster="../../assets/img/startscreen.png">
+          
+        </video>
+        <img src="../../assets/img/startscreen.png">
+    </div>
+    
+    
     <div class="start-label-box">
         <img (click)="newGame()" src="./assets/img/startlabel.png">
     </div>
 </div>
+
+

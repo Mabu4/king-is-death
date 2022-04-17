@@ -32,13 +32,19 @@
 }
 
 .played-cards {
-    transform: scale(0.9) translateX(150px) translateY(-220px) rotate(10deg);
+    transform: scale(1) translateX(150px) translateY(-220px) rotate(10deg);
     right: 25px;
+    @media(max-width: 720px){
+        transform: scale(1) translateX(150px) translateY(-160px) rotate(10deg);
+    }
 }
 
 .pick-card {
     transition: all 125ms ease-in-out;
     animation: pick-card-animation 1.1s ease-in-out 0s 1 forwards;
+    @media(max-width: 720px){
+        animation: pick-card-animation-mobile 1.1s ease-in-out 0s 1 forwards;
+    }
 }
 
 @keyframes pick-card-animation {
@@ -52,7 +58,22 @@
         transform: scale(1.7);
     }
     100% {
-        transform: scale(0.9) translateX(150px) translateY(-220px) rotate(10deg);
+        transform: scale(1) translateX(150px) translateY(-220px) rotate(10deg);
+    }
+}
+
+@keyframes pick-card-animation-mobile {
+    0% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1.7);
+    }
+    60% {
+        transform: scale(1.7);
+    }
+    100% {
+        transform: scale(1) translateX(150px) translateY(-160px) rotate(10deg);
     }
 }
 
@@ -67,8 +88,17 @@
     right: 32px;
     bottom: 32px;
     @media(max-width: 720px){
-        bottom: 164px;
+        bottom: 160px;
     }
+    @media(max-width: 480px){
+        bottom: 180px;
+    }
+}
+
+.button-menu {
+    position: absolute;
+    top: 16px;
+    left: 16px;
 }
 
 .pin-bottom {
@@ -76,11 +106,40 @@
     bottom: 32px;
     left: 150px;
     right: 150px;
+    @media(max-width: 950px){
+        left: 75px;
+        right: 125px;
+    }
 
     @media(max-width: 720px){
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    button {
+        width: 76px;
+        height: 38px;
+        margin: 5px;
+        background-color: rgb(241, 241, 241);
+        border: 1px solid rgba(170, 170, 170, 0.452);
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        &:hover {
+            background-color: rgb(227, 226, 226);
+        }
+        @media(max-width: 950px){
+            width: 60px;
+            height: 30px;
+        }
+        @media(max-width: 530px){
+            font-size: 12px;
+            width: 55px;
+            margin: 4px;
+            
+        }
     }
 }
 
@@ -88,7 +147,7 @@
     overflow: auto;
     position: absolute;
     display: flex;
-    left: 0;
+    left: 56px;
     right: 0;
     top: 0;
 }
@@ -108,6 +167,30 @@
     z-index: -999;
 }
 
+.hit-window {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.674);
+    h2 {
+        font-size: 45px;
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
 app-player, app-player-mobile {
     cursor: pointer;
 
@@ -118,4 +201,10 @@ app-player, app-player-mobile {
 
 app-player-mobile {
     margin-left: 10px;
+}
+
+mat-card {
+    @media(max-width: 720px){
+        min-height: 100px;
+    }
 }

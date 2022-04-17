@@ -6,6 +6,9 @@ export class Game {
     public currentPlayer: number = 0;
     public pickCardAnimation = false;
     public currentCard: string = '';
+    public cardAnnouncement: string = '';
+    public cardAnnouncementNumber: number = 0;
+    public hitMyTip = false;
 
     constructor(){
         for (let i = 1; i < 14; i++) {
@@ -26,7 +29,10 @@ export class Game {
             playedCards: this.playedCards,
             currentPlayer: this.currentPlayer,
             pickCardAnimation: this.pickCardAnimation,
-            currentCard: this.currentCard
+            currentCard: this.currentCard,
+            cardAnnouncement: this.cardAnnouncement,
+            cardAnnouncementNumber: this.cardAnnouncementNumber,
+            hitMyTip: this.hitMyTip
         }
     }
 }

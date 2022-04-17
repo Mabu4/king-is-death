@@ -43,9 +43,28 @@
 
 </div>
 
-<app-game-info *ngIf="!gameOver" [card]="game.currentCard" class="pin-bottom"></app-game-info>
+<div *ngIf="game.hitMyTip" id="hit-window" class="hit-window">
+    <h2>Du bist leider raus</h2>
+</div>
 
+<div *ngIf="!gameOver" class="pin-bottom">
+    <mat-card >
+        <mat-card-title>
+            Dein Tipp ist: {{ game.cardAnnouncement }}
+        </mat-card-title>
+
+        <mat-card-content>
+            <button (click)="saveAnnouncement(i)" *ngFor="let button of announcementButton; let i = index;" >{{ announcementButton[i] }}</button>
+            
+        </mat-card-content>
+    </mat-card>
+</div>
+    
 <button *ngIf="!gameOver" mat-fab color="primary" (click)="openDialog()" class="button-add">
     <mat-icon>add</mat-icon>
+</button>
+
+<button class="button-menu" (click)="openPlayRules()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+    <mat-icon>menu</mat-icon>
 </button>
 

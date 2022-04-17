@@ -17,13 +17,10 @@ import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.
 import {MatCardModule} from '@angular/material/card';
 import { GameInfoComponent } from './game-info/game-info.component';
 import { environment } from '../environments/environment';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import { AddedPlayerComponent } from './added-player/added-player.component';
-
+import { PlayRulesComponent } from './play-rules/play-rules.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +31,8 @@ import { AddedPlayerComponent } from './added-player/added-player.component';
     DialogAddPlayerComponent,
     GameInfoComponent,
     PlayerMobileComponent,
-    AddedPlayerComponent
+    AddedPlayerComponent,
+    PlayRulesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +46,6 @@ import { AddedPlayerComponent } from './added-player/added-player.component';
     MatCardModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore())
     
   ],
   providers: [],
